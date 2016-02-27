@@ -1,0 +1,19 @@
+define(['component/schema/index'], function(schema){
+  var ret = {
+      name          : '<%- name %>'
+    , type          : 'object'
+     <% if (key) { %>
+    , key           : '<%- key %>'
+    <% } %>
+    <% if (clrTypeBase) { %>
+    , clrTypeBase   : '<%- clrTypeBase %>'
+    <% } %>
+    , properties    : {
+        <% properties.forEach(function(property){ %>
+          <%- include('property', { property : property }); %>
+        <% }); %>
+    }
+  };
+
+  return ret;
+});

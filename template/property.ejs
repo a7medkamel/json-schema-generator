@@ -1,0 +1,28 @@
+'<%- property.name %>' : {
+    type : '<%- property.type %>'
+  <% if (property.enumerable) { %>
+  , items : { 
+        type : '<%- property.itemType || property.$refType %>'
+    <% if (property.schema) { %>
+      , $schema : schema.lazy('<%- property.schema.$ref %>')
+      <% if (property.enum) { %>
+      , enum : [<%- property.enum.map(function(i){ return '\'' + i + '\''; }).join(',') %>]
+      <% } %>
+    <% } %>
+    }
+  <% } %>
+  <% if (!property.enumerable) { %>
+    <% if (property.schema) { %>
+    , $schema : schema.lazy('<%- property.schema.$ref %>')
+    <% } %>
+    <% if (property.enum) { %>
+    , enum : [<%- property.enum.map(function(i){ return '\'' + i + '\''; }).join(',') %>]
+    <% } %>
+  <% } %>
+  <% if (property.key) { %>
+  , key : true
+  <% } %>
+  <% if (property.nullable) { %>
+  , nullable : true
+  <% } %>
+},

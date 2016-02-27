@@ -1,0 +1,21 @@
+{
+  "name": "json-schema-generator",
+  "version": "0.1.0",
+  "description": "Generate JSON Schema from .NET DLL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "a7medkamel",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "3.3.1",
+    "edge": "5.0.0",
+    "ejs": "2.4.1",
+    "fs-extra": "0.26.5",
+    "js-beautify": "1.6.2",
+    "json-stringify-safe": "5.0.1",
+    "underscore": "1.8.3",
+    "yargs": "4.1.0"
+  }
+}
